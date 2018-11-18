@@ -11,7 +11,8 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "test-no-watch": "cross-env CI=true react-scripts test --env=jsdom",
-    "verify": "npm-run-all format lint test-no-watch"
+    "verify": "npm-run-all format lint",
+    "verify-save": "npm-run-all format lint test-no-watch"
   },
   "eslintConfig": {
     "extends": "react-app"
