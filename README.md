@@ -79,7 +79,7 @@ the component will be re-rendered.
 The `top-state-hook` package exports a `setOptions` function
 that can be passed an object describing options to be used.
 Current there are only two options, `log` and `persist`.
-Both default to `true`.
+Both default to `false`.
 
 The `log` option causes all state changes to be
 logged to the devtools console for debugging purposes.

@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
 let options = {
-  log: true,
-  persist: true
+  log: false,
+  persist: false
 };
 
 const stateMap = {};
