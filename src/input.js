@@ -4,7 +4,7 @@ import {useTopState} from './top-state-hook';
 
 export default function Input(props) {
   const {initialValue = '', name, onChange, onEnter, type} = props;
-  const [value, set] = useTopState(name, initialValue);
+  const [value, setValue] = useTopState(name, initialValue);
 
   const handleChange = useCallback(event => {
     const {checked, value} = event.target;
@@ -16,7 +16,7 @@ export default function Input(props) {
       if (value.length) v = Number(value);
     }
 
-    set(v);
+    setValue(v);
     if (onChange) onChange(event);
   });
 

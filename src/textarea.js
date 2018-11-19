@@ -3,30 +3,20 @@ import React from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function TextArea(props) {
-  const {id, initialValue = '', name, placeholder} = props;
-  const [value, set] = useTopState(name, initialValue);
+  const {initialValue = '', name} = props;
+  const [value, setValue] = useTopState(name, initialValue);
 
   const handleChange = event => {
-    set(event.target.value);
+    setValue(event.target.value);
     const {onChange} = props;
     if (onChange) onChange(event);
   };
 
-  return (
-    <textarea
-      id={id}
-      name={name}
-      onChange={handleChange}
-      placeholder={placeholder}
-      value={value}
-    />
-  );
+  return <textarea onChange={handleChange} value={value} {...props} />;
 }
 
 TextArea.propTypes = {
-  id: string,
   initialValue: string,
   name: string.isRequired,
-  onChange: func,
-  placeholder: string
+  onChange: func
 };
