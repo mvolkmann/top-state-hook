@@ -23,12 +23,12 @@ export default function Input(props) {
   const isCheckbox = type === 'checkbox';
   const valueToUse = value === undefined ? (isCheckbox ? false : '') : value;
   const propName = isCheckbox ? 'checked' : 'value';
-  delete props.initialValue;
   const inputProps = {
     type: 'text',
     ...props,
     [propName]: valueToUse
   };
+  delete inputProps.initialValue;
 
   if (onEnter) {
     inputProps.onKeyPress = event => {

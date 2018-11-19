@@ -12,9 +12,10 @@ export default function TextArea(props) {
     if (onChange) onChange(event);
   };
 
-  delete props.initialValue;
+  const textareaProps = {...props};
+  delete textareaProps.initialValue;
 
-  return <textarea onChange={handleChange} value={value} {...props} />;
+  return <textarea onChange={handleChange} value={value} {...textareaProps} />;
 }
 
 TextArea.propTypes = {

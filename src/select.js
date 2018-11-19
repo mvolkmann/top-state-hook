@@ -12,14 +12,15 @@ export default function Select(props) {
     if (onChange) onChange(event);
   };
 
-  delete props.initialValue;
+  const selectProps = {...props};
+  delete selectProps.initialValue;
 
   return (
     <select
       onBlur={handleChange}
       onChange={handleChange}
       value={value === undefined ? '' : value}
-      {...props}
+      {...selectProps}
     >
       {children}
     </select>
