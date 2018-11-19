@@ -47,68 +47,23 @@ export const setOptions = opts => (options = opts);
 export function useTopState(name, initialValue) {
   // Get a function that can be called later
   // to re-render the calling component.
-  const [, updateFn] = useState();
+  const [, setState] = useState();
 
   let state = stateMap[name];
 
-  const render = () => {
-    persist(state);
-    state.updaters.forEach(fn => fn());
-  };
-
   if (!state) {
-    const updater = {
-      delete() {
-        state.value = undefined;
-        log && log('delete', name);
-        render();
-      },
-      set(value) {
-        state.value = value;
-        log && log('set', name, 'to', value);
-        render();
-      },
-      transform(fn) {
-        state.value = fn(state.value);
-        log && log('transform', name, 'to', state.value);
-        render();
-      }
+    const set = value => {
+      state.value = value;
+      log && log('set', name, 'to', value);
+      persist(state);
+      state.updaters.forEach(fn => fn());
     };
 
-    if (typeof initialValue === 'number') {
-      updater.decrement = (delta = 1) => {
-        state.value -= delta;
-        log && log('decrement', name, 'by', delta, state.value);
-        render();
-      };
-      updater.increment = (delta = 1) => {
-        state.value += delta;
-        log && log('increment', name, 'by', delta, state.value);
-        render();
-      };
-    } else if (Array.isArray(initialValue)) {
-      updater.filter = fn => {
-        state.value = state.value.filter(fn);
-        log && log('filter', name, 'to', state.value);
-        render();
-      };
-      updater.map = fn => {
-        state.value = state.value.map(fn);
-        log && log('map', name, 'to', state.value);
-        render();
-      };
-      updater.push = (...newValues) => {
-        state.value.push(...newValues);
-        log && log('push', name, 'with', newValues, state.value);
-        render();
-      };
-    }
-
-    state = {name, updater, updaters: new Set(), value: initialValue};
+    state = {name, set, updaters: new Set(), value: initialValue};
     stateMap[name] = state;
     persist(state);
   }
 
-  state.updaters.add(updateFn);
+  state.updaters.add(setState);
   return [state.value, state.updater];
 }

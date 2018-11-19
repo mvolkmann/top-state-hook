@@ -1,6 +1,6 @@
 {
   "name": "top-state-hook",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",

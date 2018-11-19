@@ -4,10 +4,10 @@ import {useTopState} from './top-state-hook';
 
 export default function TextArea(props) {
   const {id, initialValue = '', name, placeholder} = props;
-  const [value, updater] = useTopState(name, initialValue);
+  const [value, set] = useTopState(name, initialValue);
 
   const handleChange = event => {
-    updater.set(event.target.value);
+    set(event.target.value);
     const {onChange} = props;
     if (onChange) onChange(event);
   };

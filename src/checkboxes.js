@@ -12,15 +12,12 @@ const getName = index => 'cb' + index;
 export default function Checkboxes(props) {
   const {className, list} = props;
   for (const item of list) {
-    [item.value, item.updater] = useTopState(
-      item.name,
-      Boolean(item.initialValue)
-    );
+    [item.value, item.set] = useTopState(item.name, Boolean(item.initialValue));
   }
 
   const handleChange = useCallback((text, event) => {
-    const {updater} = list.find(obj => obj.text === text);
-    updater.set(event.target.checked);
+    const {set} = list.find(obj => obj.text === text);
+    set(event.target.checked);
   });
 
   const checkboxes = list.map((item, index) => {

@@ -10,9 +10,9 @@ import {useTopState} from './top-state-hook';
  */
 export default function RadioButtons(props) {
   const {className, initialValue = '', list, name} = props;
-  const [value, updater] = useTopState(name, initialValue);
+  const [value, set] = useTopState(name, initialValue);
 
-  const handleChange = event => updater.set(event.target.value);
+  const handleChange = event => set(event.target.value);
 
   const radioButtons = list.map(item => (
     <div key={item.value}>
