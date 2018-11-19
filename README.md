@@ -20,40 +20,13 @@ It is used to identify a particular piece of state.
 The initial value is optional and can be any kind of value.
 The hook returns an array containing
 the current value of the state and
-an object containing methods to modify it.
+a function to set the state to a new value.
 
 For example,
 
 ```js
-const [count, countUpdate] = useTopState('count', 0);
+const [count, setCount] = useTopState('count', 0);
 ```
-
-The methods on the update object include:
-
-- `set`: sets state to a given value\
-  For example, `countUpdate.set(7);`
-
-- `transform`: sets state to the result of passing the current value to a given function\
-  For example, to double the count, `countUpdate.transform(n => n *2);`.
-
-- `delete`: sets state to `undefined`\
-  For example, `countUpdate.delete();`
-
-If the initial value is a number, these methods are also provided:
-
-- `increment`: increments state by a given delta that defaults to 1\
-  For example, `countUpdate.increment(3);`
-- `decrement`: decrements state by a given delta that defaults to 1\
-  For example, `countUpdate.decrement();`
-
-If the initial value is an array, these methods are also provided:
-
-- `map`: replaces state with the result of calling the `Array map` method on it using a given function\
-  For example, to double all the numbers in an array, `scoresUpdate.map(n => n * 2);`
-- `filter`: replaces state with the result of calling the `Array filter` method on it using a given function\
-  For example, to remove all even numbers from an array, `scoresUpdate.filter(n => n % 2);`
-- `push`: adds given values to the state\
-  For example, to add the numbers 9 and 7 to an array, `scoresUpdate.push(9, 7);`
 
 Here is an example of a `Counter` component:
 
@@ -62,14 +35,14 @@ import React from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Counter() {
-  const [count, countUpdate] = useTopState('count', 0);
+  const [count, setCount] = useTopState('count', 0);
   return (
     <div>
-      <button onClick={() => countUpdate.decrement()} disabled={count === 0}>
+      <button onClick={() => setCount(count - 1)} disabled={count === 0}>
         -
       </button>
       {count}
-      <button onClick={() => countUpdate.increment()}>+</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
     </div>
   );
 }
@@ -83,7 +56,7 @@ This is where `useTopState` shines!
 Other components can also include a line like:
 
 ```js
-const [count, countUpdate] = useTopState('count', 0);
+const [count, setCount] = useTopState('count', 0);
 ```
 
 The state used by this is strictly identified
@@ -93,7 +66,7 @@ already been created, will not initialize it again,
 and will share it.
 
 When any component that is sharing this state
-calls one of the update methods to change the state value,
+calls the set function change the state value,
 all the components that are using it will be re-rendered.
 
 A component can make any number of calls to `useTopState`
