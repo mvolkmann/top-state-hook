@@ -12,6 +12,8 @@ export default function Select(props) {
     if (onChange) onChange(event);
   };
 
+  delete props.initialValue;
+
   return (
     <select
       onBlur={handleChange}

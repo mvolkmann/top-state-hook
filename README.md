@@ -133,6 +133,10 @@ For example,
 If the `option` elements have a `value` attribute, that value
 will be used instead of the text inside the `option`.
 
+Additional props on the `Input`, `TextArea`, and `Select` components
+are applied to the `input`, `textarea`, and `select` elements
+that those render. Examples include `id`, `className`, and `placeholder`.
+
 For a set of radio buttons, use the `RadioButtons` component.
 For example,
 

@@ -12,6 +12,8 @@ export default function TextArea(props) {
     if (onChange) onChange(event);
   };
 
+  delete props.initialValue;
+
   return <textarea onChange={handleChange} value={value} {...props} />;
 }
 
