@@ -52,18 +52,18 @@ export function useTopState(name, initialValue) {
   let state = stateMap[name];
 
   if (!state) {
-    const set = value => {
+    const setValue = value => {
       state.value = value;
       log && log('set', name, 'to', value);
       persist(state);
       state.updaters.forEach(fn => fn());
     };
 
-    state = {name, set, updaters: new Set(), value: initialValue};
+    state = {name, setValue, updaters: new Set(), value: initialValue};
     stateMap[name] = state;
     persist(state);
   }
 
   state.updaters.add(setState);
-  return [state.value, state.updater];
+  return [state.value, state.setValue];
 }
