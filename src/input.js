@@ -1,9 +1,9 @@
-import {bool, func, number, string} from 'prop-types';
+import {func, string} from 'prop-types';
 import React, {useCallback} from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Input(props) {
-  const {autoFocus, initialValue = '', name, onChange, onEnter, type} = props;
+  const {initialValue = '', name, onChange, onEnter, type} = props;
   const [value, set] = useTopState(name, initialValue);
 
   const handleChange = useCallback(event => {
@@ -25,7 +25,6 @@ export default function Input(props) {
 
   const propName = isCheckbox ? 'checked' : 'value';
   const inputProps = {
-    autoFocus,
     type: 'text',
     ...props,
     [propName]: valueToUse
@@ -42,14 +41,9 @@ export default function Input(props) {
 }
 
 Input.propTypes = {
-  autoFocus: bool,
-  id: string,
   initialValue: string,
-  max: number,
-  min: number,
   name: string.isRequired,
   onChange: func, // called if user presses enter key
   onEnter: func, // state name that is updated
-  placeholder: string,
   type: string // type of the HTML input
 };
