@@ -1,6 +1,6 @@
 {
   "name": "top-state-hook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
@@ -8,7 +8,6 @@
     "lint": "eslint --quiet src --ext .js",
     "prepublish": "babel src -d lib",
     "prepush": "npm run verify",
-    "start": "react-scripts start",
     "test": "react-scripts test",
     "test-no-watch": "cross-env CI=true react-scripts test --env=jsdom",
     "verify": "npm-run-all format lint",
