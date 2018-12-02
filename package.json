@@ -1,7 +1,12 @@
 {
   "name": "top-state-hook",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvolkmann/top-state-hook.git"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "babel src -d lib",
     "format": "prettier --write 'src/**/*.{js,scss}'",
