@@ -1,5 +1,5 @@
 import {func, string} from 'prop-types';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Input(props) {

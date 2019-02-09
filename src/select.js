@@ -1,5 +1,4 @@
 import {func, node, string} from 'prop-types';
-import React from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Select(props) {

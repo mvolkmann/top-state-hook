@@ -1,5 +1,4 @@
 import {arrayOf, shape, string} from 'prop-types';
-import React from 'react';
 import {useTopState} from './top-state-hook';
 
 /**

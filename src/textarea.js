@@ -1,5 +1,4 @@
 import {func, string} from 'prop-types';
-import React from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function TextArea(props) {
