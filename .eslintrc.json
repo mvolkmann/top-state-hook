@@ -13,9 +13,20 @@
     "sourceType": "module"
   },
 
-  "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
 
   "plugins": ["prettier"],
+
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
 
   "rules": {
     "no-console": "off"
