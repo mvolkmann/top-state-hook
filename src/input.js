@@ -1,5 +1,6 @@
 import {func, string} from 'prop-types';
-import {useCallback} from 'react';
+// eslint-disable-next-line no-unused-vars
+import {React, useCallback} from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Input(props) {

@@ -1,4 +1,6 @@
 import {func, node, string} from 'prop-types';
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 import {useTopState} from './top-state-hook';
 
 export default function Select(props) {
