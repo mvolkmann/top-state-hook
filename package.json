@@ -20,9 +20,8 @@
     "prepublish": "babel src -d lib",
     "prepush": "npm run verify",
     "test": "jest",
-    "test-no-watch": "cross-env CI=true react-scripts test --env=jsdom",
-    "verify": "npm-run-all format lint test",
-    "verify-save": "npm-run-all format lint test-no-watch"
+    "verify": "npm-run-all format lint",
+    "verify-save": "npm-run-all format lint test"
   },
   "browserslist": [
     ">0.2%",
