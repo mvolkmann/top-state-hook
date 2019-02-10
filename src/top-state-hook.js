@@ -56,7 +56,7 @@ export function useTopState(name, initialValue) {
       state.value = value;
       log && log('set', name, 'to', value);
       persist(state);
-      state.updaters.forEach(fn => fn());
+      state.updaters.forEach(fn => fn(value));
     };
 
     state = {name, setValue, updaters: new Set(), value: initialValue};

@@ -1,5 +1,5 @@
 import {arrayOf, bool, shape, string} from 'prop-types';
-import {React, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {useTopState} from './top-state-hook';
 
 const getName = index => 'cb' + index;
