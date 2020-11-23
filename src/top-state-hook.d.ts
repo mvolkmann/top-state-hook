@@ -4,7 +4,9 @@ declare module 'top-state-hook' {
     persist?: boolean;
   };
 
+  export type StatePair = [unknown, (value: unknown) => void];
+
   export function refreshState(): void;
   export function setOptions(opts: Options): void;
-  export function useTopState(name: string, initialValue: unknown): void;
+  export function useTopState(name: string, initialValue: unknown): StatePair;
 }
