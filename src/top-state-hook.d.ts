@@ -1,3 +1,5 @@
+declare module 'top-state-hook';
+
 type Options = {
   log?: boolean;
   persist?: boolean;

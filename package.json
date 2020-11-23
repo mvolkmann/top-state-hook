@@ -1,6 +1,6 @@
 {
   "name": "top-state-hook",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "React hook to share state between components",
   "keywords": [
     "React",
