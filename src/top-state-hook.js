@@ -9,6 +9,10 @@ const stateMap = {};
 
 const PREFIX = 'TSH:';
 
+export function getState(name) {
+  return stateMap[name];
+}
+
 const log = (method, name, text, input, value) => {
   if (!options.log) return;
   let msg = method + ' ' + name;
