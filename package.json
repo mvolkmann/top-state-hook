@@ -1,6 +1,6 @@
 {
   "name": "top-state-hook",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "React hook to share state between components",
   "keywords": [
     "React",
@@ -30,6 +30,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "typings": "src/top-state-hook.d.ts",
   "dependencies": {
     "@babel/polyfill": "^7.12.1"
   },

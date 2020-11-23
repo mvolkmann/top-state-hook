@@ -1,11 +1,10 @@
-declare module 'top-state-hook';
+declare module 'top-state-hook' {
+  export type Options = {
+    log?: boolean;
+    persist?: boolean;
+  };
 
-type Options = {
-  log?: boolean;
-  persist?: boolean;
-};
-
-export declare function refreshState(): void;
-export declare function setOptions(opts: Options): void;
-export declare function useTopState(name: string, initialValue: unknown): void;
-
+  export function refreshState(): void;
+  export function setOptions(opts: Options): void;
+  export function useTopState(name: string, initialValue: unknown): void;
+}
