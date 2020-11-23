@@ -10,7 +10,7 @@ const stateMap = {};
 const PREFIX = 'TSH:';
 
 export function getState(name) {
-  return stateMap[name];
+  return stateMap[name].value;
 }
 
 const log = (method, name, text, input, value) => {
